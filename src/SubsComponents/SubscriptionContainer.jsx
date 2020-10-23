@@ -37,6 +37,23 @@ class SubscriptionContainer extends Component {
         subscriptions: copyOfSubscriptions
     })
 }
+
+
+    updateStoreFromState = (updatedObj) => {
+        let copyOfSubscriptions = this.state.subscriptions.map((subscription) => {
+        if(subscription.id === updatedObj.id){
+            return updatedObj
+        } else {
+            return subscription
+        }
+        })
+
+        this.setState({
+        subscriptions: copyOfSubscriptions
+        })
+
+    }
+
     render() {
         let {subscriptions, searchTerm} = this.state
         let filteredArray = subscriptions.filter((subscription) => {
@@ -55,6 +72,7 @@ class SubscriptionContainer extends Component {
                     subscriptions={this.state.subscriptions} 
                     deleteSubscriptionFromState={this.deleteSubscriptionFromState} 
                     subscriptions={filteredArray}
+                    updateSubscriptionFromState={this.updateSubscriptionFromState}
                     /> 
             </div>
         );                                             

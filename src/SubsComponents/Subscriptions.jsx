@@ -18,8 +18,24 @@ class Subscription extends React.Component {
             })
     }
 
+    handleUpdate = (evt) => {
+        fetch(`http://localhost:3000/subscriptions/${this.props.subscriptions.id}`, {
+            method: "PATCH",
+            headers: {
+                "content-type": "Application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({
+                category: this.props.subscriptions.id
+            })
+        })
+            .then(res => res.json())
+            .then(updatedSubscription => {
+                this.props.updateSubscriptionFromState(updatedSubscription.id)
+            })
+    }
 
-    
+
 render() {
     let {name, image, description, category, date, amount} = this.props.subscriptions
     return (
