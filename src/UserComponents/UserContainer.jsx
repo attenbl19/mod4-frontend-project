@@ -42,7 +42,7 @@
 //                     id: res.id,
 //                     name: res.name
 //                 })
-//                 this.props.history.push("/SubscriptionContainer")
+//                 this.props.history.push("/Subscriptions")
 //             }
         
 //         })

@@ -15,7 +15,7 @@ class SubscriptionContainer extends Component {
         })
     }
     componentDidMount(){
-        fetch("http://localhost:3001/subscriptions")
+        fetch("http://localhost:3000/subscriptions")
         .then(r => r.json())
         .then((arrayOfSubscriptions) => {
             this.setState({

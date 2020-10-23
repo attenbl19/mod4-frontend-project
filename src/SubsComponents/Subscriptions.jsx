@@ -4,7 +4,7 @@ class Subscription extends React.Component {
 
     handleDelete = (evt) => {
         console.log(this.props)
-        fetch(`http://localhost:3001/subscriptions/${this.props.subscriptions.id}`, {
+        fetch(`http://localhost:3000/subscriptions/${this.props.subscriptions.id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -17,16 +17,22 @@ class Subscription extends React.Component {
                 this.props.deleteSubscriptionFromState(deletedObj.id)
             })
     }
+
+
+    
 render() {
     let {name, image, description, category, date, amount} = this.props.subscriptions
     return (
         <tr>
             <td>{name}
-            <br/>
-            <img src={image}/>
+            
+           <td> <img src={image}/></td>
             </td>
             <td>{description}</td>
-            <td>{category}</td>
+            <td>{category}
+            <button className="update"
+             onClick={this.handleUpdate}>edit</button>
+             </td>
             <td>{date}</td>
             <td>{amount}</td>
             <td>
